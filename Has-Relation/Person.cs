@@ -14,16 +14,19 @@ namespace Has_Relation
 
         public Car firstCar { get; }
 
-        public Person(string name, int age, Car firstCar)
+        public Car? secondCar { get; }
+
+        public Person(string name, int age, Car firstCar, Car? secondCar)
         {
             Name = name;
             Age = age;
             this.firstCar = firstCar;
+            this.secondCar = secondCar;
         }
 
         public override string ToString()
         {
-            return $"Name: {Name}\nAge: {Age}\nCar:\n{firstCar.ToString()}";
+            return $"Name: {Name}\nAge: {Age}\nCar1:\n{firstCar.ToString()}\nCar2:\n{(secondCar is not null ? secondCar!.ToString() : "None")}";
         }
     }
 }
